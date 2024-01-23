@@ -6,6 +6,8 @@ import aibot.aibotspring.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class MemberService {
@@ -13,5 +15,22 @@ public class MemberService {
     public void save(MemberDTO memberDTO) {
         MemberEntity memberEntity = MemberEntity.toMemberEntity(memberDTO);
         memberRepository.save(memberEntity);
+    }
+
+    public MemberDTO login(MemberDTO memberDTO) {
+        Optional<MemberEntity> byId = memberRepository.findById(memberDTO.getMemberId());
+        if (byId.isPresent()) {
+            MemberEntity memberEntity = byId.get();
+            if (memberEntity.getPw().equals(memberDTO.getMemberPassword())) {
+                MemberDTO dto = MemberDTO.toMemberDTO(memberEntity);
+                return dto;
+            }
+            else {
+                return null;
+            }
+        }
+        else {
+            return null;
+        }
     }
 }

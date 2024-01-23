@@ -8,7 +8,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "userTBL")
+@Table(name = "user")
 public class MemberEntity {
     @Id
     @Column(unique = true)
@@ -22,7 +22,7 @@ public class MemberEntity {
     @Column
     private String email;
     @Column
-    private String libraryTBL_library_name;
+    private String library_name;
 
     public static MemberEntity toMemberEntity(MemberDTO memberDTO) {
         MemberEntity memberEntity = new MemberEntity();
@@ -31,7 +31,7 @@ public class MemberEntity {
         memberEntity.setName(memberDTO.getMemberName());
         memberEntity.setPhone_number(memberDTO.getMemberPhone());
         memberEntity.setEmail(memberDTO.getMemberEmail());
-        memberEntity.setLibraryTBL_library_name(memberDTO.getMemberLibrary());
+        memberEntity.setLibrary_name(memberDTO.getMemberLibrary());
 
         return memberEntity;
     }

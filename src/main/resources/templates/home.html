@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
 </head>
 <body>
 main 화면, 검색 화면
+session 값 확인 : <p th:text="${session.loginEmail}"></p>
+<div class="search-box">
+    <label for="title">책 제목</label>
+    <input type="text" id="title" name="title" required>
+</div>
 </body>
 </html>

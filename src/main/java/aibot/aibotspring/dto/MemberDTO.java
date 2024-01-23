@@ -26,8 +26,9 @@ public class MemberDTO { // 회원 정보 필드로 정의
         memberDTO.setMemberName(memberEntity.getName());
         memberDTO.setMemberPhone(memberEntity.getPhone_number());
         memberDTO.setMemberEmail(memberEntity.getEmail());
-        memberDTO.setMemberLibrary(memberEntity.getLibraryTBL_library_name());
+        memberDTO.setMemberLibrary(memberEntity.getLibrary_name());
 
         return memberDTO;
     }
+
 }
